@@ -13,31 +13,21 @@ app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'sqlite:/
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 api = Api(app)
 
+
+@app.before_first_request
+def create_tables():
+    db.create_all()
+
 api.add_resource(Transcript, '/transcript')
 
 
 @app.route('/')
 def index():
-    # return render_template('transcript_upload.j2')
-    return render_template('2018-2019_BCS_AI.j2')
-
-
-# @app.route('/upload', methods=['GET', 'POST'])
-# def upload():
-#     if request.method == 'POST':
-#         f = request.files['transcript']
-
-#         filename = secure_filename(f.filename)
-
-#         newFile = FileContents(name=filename, data=file.read())
-#         db.session.add(newFile)
-#         db.session.commit()
-
-#         f.save(secure_filename(f.filename))
-#         return 'file: {} successfully uploaded!'.format(filename)
+    return render_template('transcript_upload.j2')
 
 
 if __name__ == "__main__":
     from db import db
-    db.init_app(app)
+    db.init_app(app)       
+
     app.run(port=5000, debug=True)

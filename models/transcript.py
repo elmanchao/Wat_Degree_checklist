@@ -3,15 +3,15 @@ from db import db
 
 
 class TranscriptModel(db.Model):
-    __tablename__ = "transcripts"
+    __tablename__ = 'transcripts'
 
     id = db.Column(db.Integer, primary_key=True)
     student_id = db.Column(db.Integer)
-    transcript = db.Column(db.LargeBinary)
+    transcript_pdf = db.Column(db.LargeBinary)
 
-    def __init__(self, student_id, transcript):
+    def __init__(self, student_id, transcript_pdf):
         self.student_id = student_id
-        self.transcript = transcript
+        self.transcript_pdf = transcript_pdf
 
     @classmethod
     def find_by_student_id(cls, student_id):
