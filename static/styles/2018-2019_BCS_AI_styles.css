@@ -20,13 +20,13 @@ body {
 
 .require-full li {
     list-style-type: none;
-    list-style-image: url(checkbox.gif);
+    list-style-image: url(/static/images/icons8-checked-checkbox-24.png);
     margin-top: 3px;
 }
 
 .require-full li.alt {
     list-style-type: none;
-    list-style-image: url(checkmark.jpg);
+    list-style-image: url(/static/images/icons8-checked-checkbox-24.png);
     margin-top: 3px;
 }
 
@@ -42,13 +42,13 @@ body {
 
 .require li {
     list-style-type: none;
-    list-style-image: url(checkbox.gif);
+    list-style-image: url(/static/images/icons8-checked-checkbox-24.png);
     margin-top: 3px;
 }
 
 .require li.alt {
     list-style-type: none;
-    list-style-image: url(checkmark.jpg);
+    list-style-image: url(/static/images/icons8-checked-checkbox-24.png);
     margin-top: 3px;
 }
 
@@ -64,7 +64,7 @@ body {
 
 .constraints-full li {
     list-style-type: none;
-    list-style-image: url(checkbox.gif);
+    list-style-image: url(/static/images/icons8-checked-checkbox-24.png);
     margin-top: 3px;
 }
 
@@ -79,13 +79,13 @@ body {
 
 .constraints li {
     list-style-type: none;
-    list-style-image: url(checkbox.gif);
+    list-style-image: url(/static/images/icons8-checked-checkbox-24.png);
     margin-top: 3px;
 }
 
 .constraints li.alt {
     list-style-type: none;
-    list-style-image: url(checkmark.jpg);
+    list-style-image: url(/static/images/icons8-checked-checkbox-24.png);
     margin-top: 3px;
 }
 
