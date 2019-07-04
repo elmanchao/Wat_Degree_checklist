@@ -9,7 +9,6 @@ from resources.transcript import Transcript
 
 
 app = Flask(__name__)
-print("<<<<<<<<<<<<<<<<<<<<<{}".format(os.environ.get('DATABASE_URL', 'sqlite:///data.db')))
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'sqlite:///data.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 api = Api(app)
@@ -19,7 +18,8 @@ api.add_resource(Transcript, '/transcript')
 
 @app.route('/')
 def index():
-    return render_template('transcript_upload.j2')
+    # return render_template('transcript_upload.j2')
+    return render_template('2018-2019_BCS_AI.j2')
 
 
 # @app.route('/upload', methods=['GET', 'POST'])

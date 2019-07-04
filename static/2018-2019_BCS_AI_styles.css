@@ -1,0 +1,137 @@
+body {
+    font-family: verdana, geneva, Arial, sans-serif;
+    font-size: 10pt;
+    width: 7.5in;
+}
+
+.top-level {
+    margin-top: 10px;
+}
+
+.require-full {
+    width: 7.5in;
+    float: left;
+    border: 1px gray;
+}
+
+.require-full ul {
+    padding-left: 22px;
+}
+
+.require-full li {
+    list-style-type: none;
+    list-style-image: url(checkbox.gif);
+    margin-top: 3px;
+}
+
+.require-full li.alt {
+    list-style-type: none;
+    list-style-image: url(checkmark.jpg);
+    margin-top: 3px;
+}
+
+.require {
+    width: 3.7in;
+    float: left;
+    border: 1px rgb(128, 128, 128);
+}
+
+.require ul {
+    padding-left: 22px;
+}
+
+.require li {
+    list-style-type: none;
+    list-style-image: url(checkbox.gif);
+    margin-top: 3px;
+}
+
+.require li.alt {
+    list-style-type: none;
+    list-style-image: url(checkmark.jpg);
+    margin-top: 3px;
+}
+
+.constraints-full {
+    width: 7.5in;
+    float: left;
+    border: 1px gray;
+}
+
+.constraints-full ul {
+    padding-left: 22px;
+}
+
+.constraints-full li {
+    list-style-type: none;
+    list-style-image: url(checkbox.gif);
+    margin-top: 3px;
+}
+
+.constraints {
+    width: 3.7in;
+    float: right;
+}
+
+.constraints ul {
+    padding-left: 22px;
+}
+
+.constraints li {
+    list-style-type: none;
+    list-style-image: url(checkbox.gif);
+    margin-top: 3px;
+}
+
+.constraints li.alt {
+    list-style-type: none;
+    list-style-image: url(checkmark.jpg);
+    margin-top: 3px;
+}
+
+.left {
+    width: 1.6in;
+    float: left;
+}
+
+.right {
+    width: 1.6in;
+    float: right;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    padding: 2px;
+    margin: 0;
+    background-color: silver;
+}
+
+h1 {
+    font-size: 150%;
+}
+
+h2 {
+    font-size: 120%;
+}
+
+.clear {
+    clear: both;
+    height: 0;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* ===== footer ===== */
+
+#footer {
+    font-size: 0.8em;
+    width: 100%;
+    float: left;
+    height: 5%;
+    clear: right;
+}
