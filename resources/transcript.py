@@ -1,23 +1,28 @@
 from flask import request, render_template, redirect, url_for, make_response
 from flask_restful import Resource
-from models.transcript import TranscriptModel
 from werkzeug.utils import secure_filename
+
+from models.transcript import TranscriptModel
+from transcript_parser import TranscriptParser
 
 
 class Transcript(Resource):
     def post(self):
         f = request.files['transcript']
-
         filename = secure_filename(f.filename)
+        file_data = f.read()
 
-        transcript = TranscriptModel(20426480, f.read())
+        transcript = TranscriptModel(20426480, file_data)
+
+        transcript_parse = TranscriptParser(file_data)
+        
         try:
+            transcript_parse.parse()
             transcript.save_to_db()
-        except:
-            print('exception')
+        except Exception as e:
+            print(e)
             return redirect('/', code=303)
 
-        f.save(filename)
         return redirect(url_for('transcript'), code=303)
 
     def get(self):

@@ -4,7 +4,6 @@ from flask import Flask, request, render_template, url_for
 from flask_restful import Api
 from flask_sqlalchemy import SQLAlchemy
 
-
 from resources.transcript import Transcript
 
 
@@ -28,6 +27,6 @@ def index():
 
 if __name__ == "__main__":
     from db import db
-    db.init_app(app)       
+    db.init_app(app)
 
     app.run(port=5000, debug=True)
