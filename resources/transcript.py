@@ -4,9 +4,13 @@ from werkzeug.utils import secure_filename
 
 from models.transcript import TranscriptModel
 from transcript_parser import TranscriptParser
+from setup_logger import SetupLogger
 
 
 class Transcript(Resource):
+    def __init__(self):
+        self.debug_logger = SetupLogger('transcript.log', True)
+
     def post(self):
         f = request.files['transcript']
         filename = secure_filename(f.filename)
@@ -20,7 +24,7 @@ class Transcript(Resource):
             transcript_parse.parse()
             transcript.save_to_db()
         except Exception as e:
-            print(e)
+            self.debug_logger.error('Transcript post failed with error: {}'.format(e))
             return redirect('/', code=303)
 
         return redirect(url_for('transcript'), code=303)

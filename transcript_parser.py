@@ -1,4 +1,5 @@
 import PyPDF2 as p2
+from setup_logger import SetupLogger
 
 
 class TranscriptParser:
