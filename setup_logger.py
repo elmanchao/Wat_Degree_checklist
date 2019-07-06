@@ -34,4 +34,3 @@ class SetupLogger:
 
     def warning(self, warning_log):
         self.logger.warning(warning_log)
-        
