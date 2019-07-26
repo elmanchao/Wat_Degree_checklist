@@ -21,10 +21,10 @@ class Transcript(Resource):
         file_data = f.read()
         transcript = TranscriptModel(20426480, file_data)
 
-        transcript_parser = TranscriptParser(unique_pdf_name)
+        transcript_parser = TranscriptParser(unique_pdf_name, f)
 
         try:
-            transcript_parser.parse()
+            transcript_parser.parse1()
             transcript.save_to_db()
         except Exception as e:
             self.debug_logger.error('Transcript post failed with error: {}'.format(e))
