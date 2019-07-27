@@ -13,16 +13,15 @@ from setup_logger import SetupLogger
 
 
 class TranscriptParser:
-    def __init__(self, filename, file_data):
+    def __init__(self, file_data):
         self.file_data = file_data
-        self.filename = filename
-        self.parser_logger = SetupLogger('transcript_parser.log', True)
-
-    def get_name(self):
-        pass
+        self.parser_logger = SetupLogger('transcript_parser.log', False)
+        self.textstr = self.read_pdf()
 
     def get_student_id(self):
-        pass
+        keyword = "Student ID:"
+        before_kew, kw, after_kw = self.textstr.partition(keyword)
+        return int(after_kw.split()[0].strip())
 
     def read_pdf(self):
         rsrcmgr = PDFResourceManager()
@@ -30,26 +29,30 @@ class TranscriptParser:
         codec = 'utf-8'
         laparams = LAParams(char_margin=200)
         device = TextConverter(rsrcmgr, retstr, codec=codec, laparams=laparams)
-        # fp = open(self.filename, 'rb')
         interpreter = PDFPageInterpreter(rsrcmgr, device)
         password = ""
         maxpages = 0
         caching = True
         pagenos = set()
-        
-        for page in PDFPage.get_pages(self.file_data, pagenos, maxpages=maxpages, password=password, caching=caching, check_extractable=False):
+
+        for page in PDFPage.get_pages(
+                self.file_data, 
+                pagenos,
+                maxpages=maxpages,
+                password=password,
+                caching=caching,
+                check_extractable=False):
+
             interpreter.process_page(page)
-       
+
         textstr = retstr.getvalue()
 
-        # fp.close()
         device.close()
         retstr.close()
         return textstr
 
     def parse1(self):
         file_string = self.read_pdf()
-        print(file_string)
         with open("delete1.txt", "a") as f:
             f.write(file_string)
 
